@@ -75,14 +75,14 @@ We used two different startegies to handles missing values (NaN):
 
 
 #### **2.2 Encoding Categorical Features**
-- **One-Hot Encoding**: Applied to categorical features such as Healer_consultation_Presence, creating binary columns for each category.
+- **One-Hot Encoding**: it was applied to categorical features such as Healer_consultation_Presence, creating binary columns for each category.
 - **Label Encoding for Target**: Guild_Membership was encoded as integers: Master Guild (2), Apprentice Guild (1) and No Guild (0).
 
 
 #### **2.3 Outlier Treatment**
-Instead of removing outliers, **Robust Scaling** was used to reduce their influence while preserving critical information.
+Instead of removing outliers, we used **Robust Scaling** to reduce their influence while preserving critical information.
 
-- **Robust Scaling**: Scaled features by subtracting the median and dividing by the interquartile range (IQR), ensuring outliers had minimal impact on scaled values.
+- **Robust Scaling**: it scaled features by subtracting the median and dividing by the interquartile range (IQR), making sure that the outliers had minimal impact on scaled values.
 
 ---
 
