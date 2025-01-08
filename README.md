@@ -9,11 +9,11 @@
 
 ## [Section 1] Introduction
 
-This project focuses on predicting guild memberships within the Kingdom of Marendor, a fictional world where scholars possess unique combinations of magical and physical attributes. The dataset comprises 31 features, combining both categorical and numerical features. Guild membership represents the target variable for classification.
+This project focuses on **predicting guild memberships within the Kingdom of Marendor**, a fictional world where scholars possess unique combinations of magical and physical attributes. The dataset comprises **31 features**, combining **both categorical and numerical features**. **Guild membership** represents the **target variable** for classification.
 
-The primary objective is to build machine learning models to accurately classify scholars into their respective guilds based on their attributes. This involves extensive data preprocessing, including handling missing values, encoding categorical features, and robustly scaling numerical features to address outliers. We further explore the efficacy of three machine learning models, which are Logistic Regression, Random Forest and CART Decision Trees, to evaluate and optimize classification performance.
+The primary objective is to build machine learning models to accurately **classify scholars into their respective guilds based on their attributes**. This involves extensive data preprocessing, including handling missing values, encoding categorical features, and robustly scaling numerical features to address outliers. We further explore the efficacy of three machine learning models, which are **Logistic Regression**, **Random Forest** and **CART Decision Trees**, to evaluate and optimize classification performance.
 
-By applying advanced optimization strategies such as hyperparameter tuning and cross-validation, the project aims to identify the most effective model for this classification task. Insights gained from this analysis are expected to enhance our understanding of the factors influencing guild memberships and contribute to the development of interpretable and robust classification systems.
+By applying advanced optimization strategies such as hyperparameter tuning and cross-validation, the project aims to **identify the most effective model** for this classification task. Insights gained from this analysis are expected to enhance our understanding of the factors influencing guild memberships and contribute to the development of interpretable and robust classification systems.
 
 ---
 
