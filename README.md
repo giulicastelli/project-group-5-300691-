@@ -96,7 +96,7 @@ Based on the dataset, this is a **multi-class classification problem** because t
 
 ---
 
-### **4. Algorithms:**
+### **4. Algorithms**
 
 We chose three algorithms based on their characteristics for the Guild dataset:
 
@@ -126,13 +126,6 @@ c)  We used **cross-validation** with **GridSearchCV** to identify the **best hy
 
 #### **Main Purpose**
 The primary purpose of the experiments was to improve the performance of different machine learning models in predicting guild memberships from the dataset, ensuring the models were appropriately tuned and capable of handling the dataset’s characteristics, such as class imbalance and feature interactions.
-
-#### **Baseline(s)**
-
-??
-- **Baseline Model:** Logistic Regression with default hyperparameters served as the baseline due to its simplicity and interpretability.
-- **Advanced Models:**  Random Forest and CART Decision Trees were compared against the baseline to assess improvements in performance and robustness.
-??
 
 #### **Evaluation Metrics**
 
