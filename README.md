@@ -96,16 +96,38 @@ CART (Classification and Regression Trees) is a model that splits the dataset in
 
 #### **4.1 Training of the models**
 
-a)  The dataset was split into training, validation, and test sets using stratified sampling to preserve class distribution across all subsets. This approach ensures consistent proportions of the target variable, allowing for reliable model training, hyperparameter tuning, and evaluation. The same splitting method was applied to all models to ensure comparability.
+a)  The dataset was split into **training**, **validation**, and **test sets** using stratified sampling to preserve class distribution across all subsets. This approach ensures consistent proportions of the target variable, allowing for reliable model training, hyperparameter tuning, and evaluation. The same splitting method was applied to all models to ensure comparability.
 
-b)  The models were trained on the training set using default hyperparameters and evaluated on the validation set, with metrics such as precision, recall, F1-score, and a confusion matrix calculated to assess performance.
+b)  The models were trained on the training set using **default hyperparameters** and evaluated on the validation set, with metrics such as **precision**, **recall**, **F1-score**, and a **confusion matrix** calculated to assess performance.
 
-c)  We used cross-validation with GridSearchCV to identify the best hyperparameters for the models by testing various combinations of parameters. This approach ensures the models are optimized for performance while addressing issues like class imbalance and overfitting. The best hyperparameters and their cross-validation accuracy were extracted to fine-tune the model. 
+c)  We used **cross-validation** with **GridSearchCV** to identify the **best hyperparameters** for the models by testing various combinations of parameters. This approach ensures the models are optimized for performance while addressing issues like class imbalance and overfitting. The best hyperparameters and their cross-validation accuracy were extracted to fine-tune the model. 
 
 ---
 
+## [Section 3] Experimental Design
 
+#### **Main Purpose**
+The primary purpose of the experiments was to evaluate the performance of different machine learning models in predicting guild memberships from the dataset, ensuring the models were appropriately tuned and capable of handling the dataset’s characteristics, such as class imbalance and feature interactions.
 
+#### **Baseline(s)**
+
+- **Baseline Model:** Logistic Regression with default hyperparameters served as the baseline due to its simplicity and interpretability.
+- **Advanced Models:**  Random Forest and CART Decision Trees were compared against the baseline to assess improvements in performance and robustness.
+- **Majority Class Prediction:** A naive model predicting the majority class for all instances was also used as a baseline to measure improvement.
+
+#### **Evaluation Metrics**
+
+- **Accuracy:** To evaluate overall correctness but noted as less effective for imbalanced datasets.
+
+- **F1 Score:** A balanced metric accounting for precision and recall, especially useful for imbalanced classes.
+
+- **Precision and Recall:** To understand the ability to predict minority classes effectively.
+
+- **ROC-AUC:** To assess the model’s ability to distinguish between classes across thresholds.
+
+- **Confusion Matrix:**  To visualize class-specific performance and errors.
+
+This experimental setup validated each model's contribution by comparing their ability to classify guild memberships, focusing on both overall performance and handling imbalanced classes. The findings provided insights into the strengths and limitations of advanced models over simpler baselines.
 
 
 
