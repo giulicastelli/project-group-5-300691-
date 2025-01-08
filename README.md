@@ -72,24 +72,33 @@ Instead of removing outliers, we used **Robust Scaling** to reduce their influen
 
 ---
 
-### **3 Defining the problem type: Regression, Classification or Clustering**
+### **3. Defining the problem type: Regression, Classification or Clustering**
 
 Based on the dataset, this is a multi-class classification problem because the target variable `Guild_Membership` consists of discrete categories representing the guild each scholar belongs to ("Master Guild", "Apprentice Guild" and "No Guild"). The objective is to predict which guild each scholar will be assigned to based on their attributes.  
 
 ---
 
-### **4 Algorithms:**
+### **4. Algorithms:**
 
-Three algorithms were chosen based on their characteristics and suitability for the dataset:
+We chose three algorithms based on their characteristics and suitability for the Guild dataset:
 
 **Logistic Regression**
-Logistic Regression is simple and interpretable, making it suitable for understanding relationships between features and the target. It is also computationally efficient, even with large datasets. However, it assumes linearity between features and the log-odds of the target, which may not hold true for complex datasets like this one. Logistic Regression struggles with imbalanced data, often predicting the majority class, and has limited ability to capture non-linear patterns unless features are transformed or interactions are explicitly modeled.
+
+Logistic Regression because it is simple and interpretable, making it suitable for understanding relationships between features and the target. It is also computationally efficient, even with large datasets. However, it assumes linearity between features, which may not hold true for complex datasets like this one. Logistic Regression struggles with imbalanced data, often predicting the majority class, and has limited ability to capture non-linear patterns unless features are transformed or interactions are explicitly modeled.
 
 **Random Forest**
+
 Random Forest is an ensemble method that builds multiple decision trees on bootstrapped samples and combines their predictions to reduce overfitting. It effectively handles non-linearity, provides feature importance metrics, and is robust to imbalanced datasets. However, it can be computationally intensive, memory-heavy for large datasets, and requires careful hyperparameter tuning for optimal performance.
 
 **CART Decision Trees**
+
 CART (Classification and Regression Trees) is a model that splits the dataset into subsets based on feature values, recursively partitioning until a stopping criterion is met. It is easy to visualize, interpret, and explain, captures non-linear relationships and requires minimal preprocessing for both numerical and categorical data. However, it is highly prone to overfitting without regularization and it is sensitive to small changes in the dataset.
+
+#### **4.1 Training of the models**
+
+a) The dataset was split into training, validation, and test sets using stratified sampling to preserve class distribution across all subsets. This approach ensures consistent proportions of the target variable, allowing for reliable model training, hyperparameter tuning, and evaluation. The same splitting method was applied to all models to ensure comparability.
+b) The models were trained on the training set using default hyperparameters and evaluated on the validation set, with metrics such as precision, recall, F1-score, and a confusion matrix calculated to assess performance.
+c) We used cross-validation with GridSearchCV to identify the best hyperparameters for the models by testing various combinations of parameters. This approach ensures the models are optimized for performance while addressing issues like class imbalance and overfitting. The best hyperparameters and their cross-validation accuracy were extracted to fine-tune the model. 
 
 ---
 
