@@ -38,7 +38,7 @@ We used a dataset named guilds.csv, which contains 253,680 rows and 31 columns, 
 #### **1.2 Check Data Integrity**
 **Handling Missing Values:**
 We identified missing data using visualizations (e.g., missing data matrix).
-![missingvalues](https://github.com/user-attachments/assets/df9c4be6-48de-46c4-8cc6-925b16b345ea)
+
 
 
 **Types of Missingness:**
