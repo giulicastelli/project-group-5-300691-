@@ -49,7 +49,8 @@ We used a dataset named **guilds.csv**, which contains **253,680 rows** and **31
 #### **1.2 Check Data Integrity**
 
 **Handling Missing Values:**
-We identified missing data using visualizations: **missing data matrix**
+We identified missing data using a code which generates a table of missing values and their percentages for each column in a DataFrame. 
+To help us visualize and analyze missing data patterns we used **missingno**, in particular the Matrix Plot visualization graph. 
 
 ![Graph of Results](missingvalues.png)
 
@@ -68,7 +69,6 @@ An example of countplot:
 
 ![Graph of Results](royalfamily.png)
 
-An example of boxplot:
 
 #### **1.4 Correlation Heatmap**
 
