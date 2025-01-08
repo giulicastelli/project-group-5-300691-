@@ -61,16 +61,59 @@ Scaling: RobustScaler from Scikit-learn was applied to numerical columns.
 
 ### **2. Preprocessing the Dataset**
 
+**Strategies we used to drop and imput data**
+
+Since Guild_Membership is the target variable for our analysis, it is crucial to ensure that this column contains no missing values. Rows with missing values in the target variable cannot be used effectively in supervised learning tasks, such as classification or regression, because the model would have no outcome to predict for those rows. Dropping rows with missing Guild_Membership values ensures that the dataset used for modeling contains complete and valid targets, which is essential for training and evaluation.
+
+ On the other hand, the other columns in the dataset serve as features, and their missing values can be imputed using appropriate methods, such as the median for numerical variables or the most frequent value for categorical variables. This approach allows you to retain as much data as possible while addressing missingness in a way that preserves the dataset's overall structure and variability. Imputation ensures that the information from the feature columns is not lost, thereby maximizing the size of the dataset and providing the model with the richest possible set of input data. 
+ 
+ By combining these strategies—dropping rows with missing target values and imputing missing feature values—you maintain the integrity of the target variable while making the most of the available information in the features, ultimately creating a dataset that is both clean and robust for analysis.
+
 #### **Drop missing values (NaN) in Guild_Membership**
+
+Since Guild_Membership is the target variable for our analysis, it is crucial to ensure that this column contains no missing values. Rows with missing values in the target variable cannot be used effectively in supervised learning tasks, such as classification or regression, because the model would have no outcome to predict for those rows. Dropping rows with missing Guild_Membership values ensures that the dataset used for modeling contains complete and valid targets, which is essential for training and evaluation.
 
 #### **Imput new values in other columns: Median**
 
+ While for Guild_Membership we dropped its rows with missing values, on the other hand, the other columns in the dataset serve as features, and their missing values can be imputed using appropriate methods. This approach allows us to retain as much data as possible while addressing missingness in a way that preserves the dataset's overall structure and variability. Imputation ensures that the information from the feature columns is not lost, thereby maximizing the size of the dataset and providing the model with the richest possible set of input data. 
+
+**Substituting missing values in numerical columns**
+
+The **mean** is the average value of a dataset, calculated by summing all numbers and dividing by their count. It is sensitive to extreme values, which can significantly impact its value. On the other hand, the **median** represents the middle value of an ordered dataset and is resistant to outliers, making it more robust when dealing with extreme data points. In skewed distributions, the mean is influenced by the skew, while the median provides a more central and accurate representation.
+
+In our case, where the dataset is highly imbalanced, the `median` is a better choice for summarizing data. Since extreme values are likely present due to the imbalance, using the median ensures these outliers do not disproportionately affect the representation of the data, making it more reliable for analysis.
+
+**Substituting missing values in categorical columns**
+
+For categorical columns, missing values are replaced with the `most frequent` value in the column, ensuring that no invalid or non-categorical entries are introduced. 
+This is done through the SimpleImputer class from sklearn.impute, where the imputation strategy is set to 'most_frequent'.
+
+
 #### **Encoding categorical features: One-Hot Encode**
+
+**One-hot encoding** is a method used to transform categorical features into numerical representations by creating new binary columns for each unique category in a feature. Each of these binary columns takes a value of 0 or 1, indicating the absence or presence of the corresponding category in a given row of the dataset. 
+
+The target variable "Guild_Membership" is transformed into numerical labels through label encoding, where each unique category ("Master Guild", "Apprentice Guild" and "No Guild") is assigned a distinct integer value (0, 1 or 2) encoded into a single column.
+
+
 
 #### **Fixing outliers: Robust Scaling**
 
+We decided to scale outliers instead of removing them because higher values in certain features are critical for distinguishing between guild memberships, such as master, no guild, or apprentice. Removing these values could lead to a loss of important information that contributes to classification, as the presence of extreme values might be significant indicators for certain categories in the target variable. By scaling, we reduce their numerical impact while preserving their relative importance within the dataset.
 
-### **2.2 Algorithms:**
+Robust Scaling is a scaling technique that adjusts numerical data by subtracting the median and scaling according to the interquartile range (IQR). It is particularly effective for datasets with outliers.
+
+Robust scaling is not sensitive to outliers because it uses the median (a robust measure of central tendency) and IQR (a robust measure of spread).
+This ensures that outliers do not overly influence the scaled values, which is critical for the dataset with features like Fae_Dust_Reserve and Physical_Stamina that have significant outliers.
+
+
+---
+
+
+### **3 Defining the problem type: Regression, Classification or Clustering**
+
+
+### **4 Algorithms:**
 
 Three algorithms were chosen based on their characteristics and suitability for the dataset:
 
