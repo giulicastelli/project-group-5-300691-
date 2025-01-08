@@ -17,118 +17,95 @@ By applying advanced optimization strategies such as hyperparameter tuning and c
 
 ## [Section 2] Methods
 
-**Features:**
-The dataset includes a mix of numerical and categorical features representing the magical and physical traits of scholars. 
+### **1. EDA**
+Exploratory Data Analysis (EDA) helps us to understand, clean, and gain insights from our 
+dataset, preparing it for machine learning models. In order to do so we employed several Python libraries for analysis and visualization, such as Pandas, Numpy, Scikit-learn, Matplotlib, Seaborn, and Missingno. EDA process steps are:
+1. Understand Column Meanings
+2. Check Data Integrity
+3. Visualize Distributions
+4. Correlation Heatmap
 
-**Numerical Features:**
+#### **1.1 Understand Column Meanings**
+We used a dataset named guilds.csv, which contains 253,680 rows and 31 columns, describing various magical and physical attributes of scholars in the Kingdom of Marendor. The data spans a mix of numerical, categorical, and derived variables that offer insights into the factors influencing guild memberships.
 
-- **Fae_Dust_Reserve**: Represents the subject’s reserve of mystical dust indicating magical potential.
+**Types of Data:**
 
-- **Physical_Stamina**: Indicates the subject's overall physical endurance and health.
+- Numerical Columns: Examples include Fae_Dust_Reserve, Physical_Stamina, and Mystical_Index.
+- Categorical Columns: Examples include Healer_consultation_Presence and Bolt_of_doom_Presence.
+- Target Variable: Guild_Membership, which specifies guild affiliation, such as Master_Guild or No_Guild.
+- Data Types: While most columns are numerical, some categorical features are binary or text-based.
 
-- **Mystical_Index**: Numeric representation of the subject's mystical power and well-being.
 
-- **Mystic_Energy_Level**: The level of mystical energy possessed by the subject.
-  
-- **Age_of_Wisdom**: The subject's age, indicating life experience.
 
-- **Mental_Wizardry**: Represents the subject's mental health and wizardry capacity.
+Key Preprocessing Steps:
 
-- **Potion_Power_Level**: Represents the power or effectiveness of the potions used by the subject.
+Handling Missing Values:
+We identified missing data using visualizations (e.g., missing data matrix) and addressed it through:
+Dropping rows where Guild_Membership was missing, as it is the target variable.
+Imputing missing numerical features with the mean and categorical features with the most frequent value.
+Encoding Categorical Features:
+To ensure compatibility with machine learning models, we applied:
+One-hot encoding for binary columns like Healer_consultation_Presence.
+Manual mapping for ordinal columns such as Guild_Membership.
+Outlier Treatment:
+Instead of removing outliers, we scaled numerical features using Robust Scaling to mitigate their impact while preserving the range of values crucial for guild predictions.
+Feature Selection and Transformation:
+Features were evaluated for relevance and transformed where necessary to enhance model performance and computational efficiency.
+Tools and Libraries:
 
-- **Gold_Pouches_Per_Year**: The subject’s annual income represented as gold pouches.
+Visualization: Missingno and Seaborn were used to visualize missing data and feature distributions.
+Scaling: RobustScaler from Scikit-learn was applied to numerical columns.
 
-- **Wizardry_Skill**: The subject’s proficiency in magical skills.
 
-- **Spell_Mastering_Days**: Number of days the subject has dedicated to mastering spells.
 
-- **Level_of_Academic_Wisdom**: The highest level of knowledge or wisdom achieved by the subject.
+### **2.2 Algorithms:**
 
-- **General_Health_Condition**: An overall assessment of the subject's health status.
+Three algorithms were chosen based on their characteristics and suitability for the dataset:
 
-- **Dragon_Sight_Sharpness**: Measures the subject’s visual acuity or ability to see mystical beings like dragons.
-    
-- **Enchanted_Coin_Count**: The number of enchanted coins the subject possesses.
+**Logistic Regression:**
+Logistic Regression is simple and interpretable, making it suitable for understanding relationships between features and the target. It is also computationally efficient, even with large datasets. However, it assumes linearity between features and the log-odds of the target, which may not hold true for complex datasets like this one. Logistic Regression struggles with imbalanced data, often predicting the majority class, and has limited ability to capture non-linear patterns unless features are transformed or interactions are explicitly modeled.
 
-- **Celestial_Alignment**: Represents the alignment of the subject with celestial forces.
+**Random Forest:**
+Random Forest is an ensemble method that builds multiple decision trees during training and combines their predictions (e.g., majority vote for classification). Each tree is trained on a bootstrapped sample, and feature selection is randomized at each split to reduce overfitting.
 
-- **Knightly_Valor**: The bravery and valor displayed by the subject.
+Pros:
 
-- **Rune_Power**: Represents the power derived from magical runes by the subject.
+Handles non-linearity and interactions among features without explicit feature engineering.
 
- 
-**Categorical Features:**
+Provides feature importance metrics, aiding in interpretability.
 
-- **Healer_consultation_Presence**: 
-  - **Explanation**: Indicates whether the subject has consulted a healer recently.
-  - **Values**: Categorical, "Present" or "Absent".
+Robust to overfitting due to ensemble averaging and well-suited for imbalanced datasets by weighting classes or using techniques like SMOTE.
 
-- **Elixir_veggies_consumption_Presence**: 
-  - **Explanation**: Indicates whether the subject has consumed enchanted vegetables.
-  - **Values**: Categorical, "Present" or "Absent".
+Cons:
 
-- **Bolt_of_doom_Presence**: 
-  - **Explanation**: Indicates whether the subject experienced a thunderstrike.
-  - **Values**: Categorical, "Present" or "Absent".
+Computationally intensive, especially with a high number of trees (n_estimators) or deep trees (max_depth).
 
-- **High_willingness_Presence**: 
-  - **Explanation**: Indicates whether the subject has a high willingness to engage in advanced magical practices.
-  - **Values**: Categorical, "Present" or "Absent".
+Memory usage can be significant for large datasets.
 
-- **Defense_spell_difficulty_Presence**: 
-  - **Explanation**: Indicates if the subject has difficulty casting defense spells.
-  - **Values**: Categorical, "Present" or "Absent".
+Requires careful tuning of hyperparameters (e.g., n_estimators, max_features, max_depth) to achieve optimal performance.
 
-- **Doc_availability_challenge_Presence**: 
-  - **Explanation**: Shows if there were any barriers preventing access to healers.
-  - **Values**: Categorical, "Present" or "Absent".
+CART Decision Trees:
+CART (Classification and Regression Trees) is a non-parametric model that splits the dataset into subsets based on feature values, recursively partitioning until leaves contain instances of a single class or reach a stopping criterion.
 
-- **Dexterity_check_Presence**: 
-  - **Explanation**: Indicates the subject's high dexterity.
-  - **Values**: Categorical, "Present" or "Absent".
+Pros:
 
-- **Fruits_of_eden_consumption_Presence**: 
-  - **Explanation**: Indicates whether the subject consumes fruits from Eden.
-  - **Values**: Categorical, "Present" or "Absent".
+Easy to visualize, interpret, and explain to non-technical stakeholders.
 
-- **Knight_physical_training_Presence**: 
-  - **Explanation**: Indicates if the subject underwent knight-like physical training.
-  - **Values**: Categorical, "Present" or "Absent".
+Captures non-linear relationships and interactions among features naturally.
 
-- **Royal_family_pressure_Presence**: 
-  - **Explanation**: Indicates if the subject faces pressure from the royal family.
-  - **Values**: Categorical, "Present" or "Absent".
+Requires minimal preprocessing, as it handles both numerical and categorical features natively.
 
-- **Guild_Membership**: 
-  - **Explanation**: The guild or magical faction the subject will belong to.
-  - **Values**: Categorical, "Master_Guild", "No_Guild", "Apprentice_Guild" -> **target variable**
+Cons:
 
-- **Heavy_elixir_consumption_Presence**: 
-  - **Explanation**: Indicates if the subject consumes heavy magical elixirs.
-  - **Values**: Categorical, "Present" or "Absent".
+Highly prone to overfitting, as it tries to perfectly classify training data unless regularized (e.g., by limiting max_depth or min_samples_split).
 
-- **Stigmata_of_the_cursed_Presence**: 
-  - **Explanation**: Indicates if the subject experienced a crisis or damage from magical or dark powers.
-  - **Values**: Categorical, "Present" or "Absent".
+Sensitive to small changes in the dataset, which can significantly alter the structure of the tree.
 
-- **Dragon_status_Presence**: 
-  - **Explanation**: Denotes whether the subject has the sign of the dragon.
-  - **Values**: Categorical, "Present" or "Absent".
+Limited predictive power as a standalone model; often outperformed by ensemble methods like Random Forest.
 
 
 
 
-
-
-
-Algorithms:
-We tested three models:
-
-Random Forest Classifier
-
-Support Vector Machine (SVM)
-
-Neural Network (Multilayer Perceptron)
 
 Training Overview:
 The dataset was preprocessed by handling missing values, encoding categorical features, and standardizing numerical features. We performed feature selection to identify the most relevant attributes.
