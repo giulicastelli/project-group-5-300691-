@@ -51,7 +51,7 @@ We used a dataset named **guilds.csv**, which contains **253,680 rows** and **31
 **Handling Missing Values:**
 We identified missing data using visualizations: **missing data matrix**
 
-![Graph of Results](images/missingvalues.png)
+![Graph of Results](missingvalues.png)
 
 **Types of Missingness:**
 The patterns and correlations observed suggest that most of the missingness in the dataset can be explained by relationships with other observed variables, classifying it primarily as **`Missing at Random`** (**MAR**). 
