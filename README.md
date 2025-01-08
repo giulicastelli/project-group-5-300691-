@@ -22,75 +22,41 @@ The dataset includes a mix of numerical and categorical features representing th
 
 **Numerical Features:**
 
-- **Fae_Dust_Reserve**: 
-  - **Explanation**: Represents the subject’s reserve of mystical dust indicating magical potential.
-  - **Values**: Numeric 
+- **Fae_Dust_Reserve**: Represents the subject’s reserve of mystical dust indicating magical potential.
 
-- **Physical_Stamina**: 
-  - **Explanation**: Indicates the subject's overall physical endurance and health.
-  - **Values**: Numeric 
+- **Physical_Stamina**: Indicates the subject's overall physical endurance and health.
 
-- **Mystical_Index**: 
-  - **Explanation**: Numeric representation of the subject's mystical power and well-being.
-  - **Values**: Numeric
+- **Mystical_Index**: Numeric representation of the subject's mystical power and well-being.
 
-- **Mystic_Energy_Level**: 
-  - **Explanation**: The level of mystical energy possessed by the subject.
-  - **Values**: Numeric 
-
-- **Age_of_Wisdom**: 
-  - **Explanation**: The subject's age, indicating life experience.
-  - **Values**: Numeric
-
-- **Mental_Wizardry**: 
-  - **Explanation**: Represents the subject's mental health and wizardry capacity.
-  - **Values**: Numeric 
-
-- **Potion_Power_Level**: 
-  - **Explanation**: Represents the power or effectiveness of the potions used by the subject.
-  - **Values**: Numeric
-
-- **Gold_Pouches_Per_Year**: 
-  - **Explanation**: The subject’s annual income represented as gold pouches.
-  - **Values**: Numeric
-
-- **Wizardry_Skill**: 
-  - **Explanation**: The subject’s proficiency in magical skills.
-  - **Values**: Numeric
-
-- **Spell_Mastering_Days**: 
-  - **Explanation**: Number of days the subject has dedicated to mastering spells.
-  - **Values**: Numeric
-
-- **Level_of_Academic_Wisdom**: 
-  - **Explanation**: The highest level of knowledge or wisdom achieved by the subject.
-  - **Values**: Numeric
-
-- **General_Health_Condition**: 
-  - **Explanation**: An overall assessment of the subject's health status.
-  - **Values**: Numeric
-
-- **Dragon_Sight_Sharpness**: 
-  - **Explanation**: Measures the subject’s visual acuity or ability to see mystical beings like dragons.
-  - **Values**: Numeric
-    
-- **Enchanted_Coin_Count**: 
-  - **Explanation**: The number of enchanted coins the subject possesses.
-  - **Values**: Numeric
-
-- **Celestial_Alignment**: 
-  - **Explanation**: Represents the alignment of the subject with celestial forces.
-  - **Values**: Numeric
-
-- **Knightly_Valor**: 
-  - **Explanation**: The bravery and valor displayed by the subject.
-  - **Values**: Numeric
-
-- **Rune_Power**: 
-  - **Explanation**: Represents the power derived from magical runes by the subject.
-  - **Values**: Numeric
- 
+- **Mystic_Energy_Level**: The level of mystical energy possessed by the subject.
   
+- **Age_of_Wisdom**: The subject's age, indicating life experience.
+
+- **Mental_Wizardry**: Represents the subject's mental health and wizardry capacity.
+
+- **Potion_Power_Level**: Represents the power or effectiveness of the potions used by the subject.
+
+- **Gold_Pouches_Per_Year**: The subject’s annual income represented as gold pouches.
+
+- **Wizardry_Skill**: The subject’s proficiency in magical skills.
+
+- **Spell_Mastering_Days**: Number of days the subject has dedicated to mastering spells.
+
+- **Level_of_Academic_Wisdom**: The highest level of knowledge or wisdom achieved by the subject.
+
+- **General_Health_Condition**: An overall assessment of the subject's health status.
+
+- **Dragon_Sight_Sharpness**: Measures the subject’s visual acuity or ability to see mystical beings like dragons.
+    
+- **Enchanted_Coin_Count**: The number of enchanted coins the subject possesses.
+
+- **Celestial_Alignment**: Represents the alignment of the subject with celestial forces.
+
+- **Knightly_Valor**: The bravery and valor displayed by the subject.
+
+- **Rune_Power**: Represents the power derived from magical runes by the subject.
+
+ 
 **Categorical Features:**
 
 - **Healer_consultation_Presence**: 
