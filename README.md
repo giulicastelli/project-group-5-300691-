@@ -68,11 +68,14 @@ IMMagine
 We used two different startegies to handles missing values (**NaN**):
 
 a) **Drop Missing Values in the Target**:
-     - Rows with missing values in the **Guild_Membership** column were removed, ensuring the dataset was valid for supervised learning tasks.
+     - Rows with missing values in the **Guild_Membership** column were removed, ensuring the dataset was valid for supervised
+     learning tasks.
 
 b) **Imputation for Features**:
-     - **Numerical Features**: Missing values were replaced with the **median** to handle skewness and reduce the impact of outliers.
-     - **Categorical Features**: Missing values were replaced with the **most frequent value**, preserving categorical integrity.
+     - **Numerical Features**: Missing values were replaced with the **median** to handle skewness and reduce the impact of 
+     outliers.
+     - **Categorical Features**: Missing values were replaced with the **most frequent value**, preserving categorical
+     integrity.
 
 
 #### **2.2 Encoding Categorical Features**
