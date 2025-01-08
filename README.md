@@ -161,12 +161,15 @@ The CART model faced generalization challenges, with accuracy dropping slightly 
 
 #### **ROC-AUC curves**
 **Logistic Regression:**
+
 ![Graph of Results](logisticroc.png)
 
 **Random Forest:**
+
 ![Graph of Results](randomroc.png)
 
 **CART Decision Trees:**
+
 ![Graph of Results](cartroc.png)
 
 ---
