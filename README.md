@@ -27,7 +27,7 @@ By applying advanced optimization strategies such as hyperparameter tuning and c
 - Matplotlib
 - Seaborn
 - Missingno
-- Scikit-learn
+- Sklearn
 
 **Exploratory Data Analysis** (**EDA**) helps us to understand, clean, and gain insights from our 
 dataset, preparing it for machine learning models. EDA process steps are:
