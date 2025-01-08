@@ -59,25 +59,27 @@ Tools and Libraries:
 Visualization: Missingno and Seaborn were used to visualize missing data and feature distributions.
 Scaling: RobustScaler from Scikit-learn was applied to numerical columns.
 
+--- 
+
 ### **2. Preprocessing the Dataset**
  
-### **2.1 Handling Missing Data**
-Two strategies were used:
+#### **2.1 Handling Missing Data**
+We used two different startegies to handles missing values (NaN):
 
 1. **Drop Missing Target Values**:
-  - Rows with missing values in the Guild_Membership column were removed, ensuring the dataset was valid for supervised learning tasks.
+     - Rows with missing values in the Guild_Membership column were removed, ensuring the dataset was valid for supervised learning tasks.
 
 2. **Imputation for Features**:
-  - **Numerical Features**: Missing values were replaced with the median to handle skewness and reduce the impact of outliers.
-  - **Categorical Features**: Missing values were replaced with the most frequent value, preserving categorical integrity.
+     - **Numerical Features**: Missing values were replaced with the median to handle skewness and reduce the impact of outliers.
+     - **Categorical Features**: Missing values were replaced with the most frequent value, preserving categorical integrity.
 
 
-### **2.2 Encoding Categorical Features**
+#### **2.2 Encoding Categorical Features**
 - **One-Hot Encoding**: Applied to categorical features such as Healer_consultation_Presence, creating binary columns for each category.
-- **Label Encoding for Target**: Guild_Membership was encoded as integers: Master Guild (0), Apprentice Guild (1), and No Guild (2).
+- **Label Encoding for Target**: Guild_Membership was encoded as integers: Master Guild (2), Apprentice Guild (1) and No Guild (0).
 
 
-### **2.3 Outlier Treatment**
+#### **2.3 Outlier Treatment**
 Instead of removing outliers, **Robust Scaling** was used to reduce their influence while preserving critical information.
 
 - **Robust Scaling**: Scaled features by subtracting the median and dividing by the interquartile range (IQR), ensuring outliers had minimal impact on scaled values.
