@@ -19,7 +19,9 @@ By applying advanced optimization strategies such as hyperparameter tuning and c
 
 ## [Section 2] Methods
 
-### **Data Handling and Visualization:**
+### **1. EDA**
+
+### **Python libraries for analysis and visualization:**
 - Pandas
 - NumPy
 - Matplotlib
@@ -27,33 +29,32 @@ By applying advanced optimization strategies such as hyperparameter tuning and c
 - Missingno
 - Scikit-learn
 
-### **1. EDA**
-Exploratory Data Analysis (EDA) helps us to understand, clean, and gain insights from our 
-dataset, preparing it for machine learning models. In order to do so we employed several Python libraries for analysis and visualization, such as Pandas, Numpy, Scikit-learn, Matplotlib, Seaborn, and Missingno. EDA process steps are:
+**Exploratory Data Analysis** (**EDA**) helps us to understand, clean, and gain insights from our 
+dataset, preparing it for machine learning models. EDA process steps are:
 1. Understand Column Meanings
 2. Check Data Integrity
 3. Visualize Distributions
 4. Correlation Heatmap
 
 #### **1.1 Understand Column Meanings**
-We used a dataset named guilds.csv, which contains 253,680 rows and 31 columns, describing various magical and physical attributes of scholars in the Kingdom of Marendor. The data spans a mix of numerical, categorical, and derived variables that offer insights into the factors influencing guild memberships.
+We used a dataset named **guilds.csv**, which contains **253,680 rows** and **31 columns**, describing various magical and physical attributes of scholars in the Kingdom of Marendor. The data spans a mix of numerical and categorical variables that offer insights into the factors influencing guild memberships.
 
 **Types of Data:**
 
 - **Numerical Columns:** Examples include Fae_Dust_Reserve, Physical_Stamina, and Mystical_Index.
 - **Categorical Columns:** Examples include Healer_consultation_Presence and Bolt_of_doom_Presence.
-- **Target Variable:** Guild_Membership, which specifies guild affiliation, such as Master_Guild or No_Guild.
+- **Target Variable:** Guild_Membership such as Master_Guild, Apprentice_Guild or No_Guild.
 - **Data Types:** While most columns are numerical, some categorical features are binary.
 
 #### **1.2 Check Data Integrity**
 
 **Handling Missing Values:**
-We identified missing data using visualizations (e.g. missing data matrix).
+We identified missing data using visualizations: **missing data matrix**
 
 IMMAGINE
 
 **Types of Missingness:**
-The patterns and correlations observed suggest that most of the missingness in the dataset can be explained by relationships with other observed variables, classifying it primarily as `Missing at Random` (**MAR**). 
+The patterns and correlations observed suggest that most of the missingness in the dataset can be explained by relationships with other observed variables, classifying it primarily as **`Missing at Random`** (**MAR**). 
 
 #### **1.3 Correlation Heatmap**
 
