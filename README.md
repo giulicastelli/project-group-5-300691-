@@ -129,6 +129,29 @@ The primary purpose of the experiments was to evaluate the performance of differ
 
 This experimental setup validated each model's contribution by comparing their ability to classify guild memberships, focusing on both overall performance and handling imbalanced classes. The findings provided insights into the strengths and limitations of advanced models over simpler baselines.
 
+---
+
+[Section 4] Results
+
+**Logistic Regression:**
+
+The Logistic Regression model showed an improvement in accuracy from 57% on the training set to 67% on the test set. However, it struggled to generalize for Class 0, with a significant drop in recall from 44% to 14%. In contrast, Class 1 recall improved from 39% to 62%, while Class 2 maintained high performance with a stable precision of 93% and an increase in recall from 61% to 69%. The weighted averages improved due to better performance on Class 2, and the Test ROC AUC score of 0.71 indicates reasonable overall discrimination, despite challenges with minority classes.
+
+**Random Forest:**
+The Random Forest model demonstrated consistent performance across the training and test sets, with an accuracy of 67%. Class 0 remained challenging, with low recall improving marginally from 5% to 7%. Class 1 recall remained high at 71%, with stable precision around 29%, while Class 2 retained high precision (94%) but experienced a slight drop in recall (from 68% to 67%). The weighted averages reflected balanced performance, and the Test ROC AUC of 0.74 confirmed strong discrimination, particularly for the majority class, showing the model's robustness and generalization.
+
+**CART Decision Trees:**
+The CART model faced generalization challenges, with accuracy dropping slightly from 68% on the training set to 66% on the test set. For Class 0, recall improved modestly from 7% to 11%, but overall precision and F1-scores remained poor. Class 1 showed slight improvements in recall (from 42% to 44%) but stable precision, while Class 2 experienced a minor decrease in recall (from 73% to 71%) but maintained high precision (90%). The Test ROC AUC of 0.59 highlighted limited class separability, especially for minority classes, underscoring the need for further refinement.
+
+**Overall Insights**
+- **Best Model:** Random Forest emerged as the most balanced model, with strong performance on the majority class (Class 2) and reasonable handling of Class 1.
+- **Challenges:** All models struggled with Class 0, highlighting the difficulty of predicting the minority class. Logistic Regression was particularly weak for this class, while Random Forest and CART performed slightly better.
+- **Discrimination:** Random Forest achieved the highest ROC AUC (0.74), showing its ability to distinguish between classes more effectively than Logistic Regression (0.71) and CART (0.59).
+
+---
+
+
+
 
 
 Libraries: scikit-learn, pandas, numpy, matplotlib, seaborn
