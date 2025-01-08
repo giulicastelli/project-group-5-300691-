@@ -58,7 +58,7 @@ The patterns and correlations observed suggest that most of the missingness in t
 
 #### **1.3 Correlation Heatmap**
 
-IMMagine
+![Graph of Results](correlation.png)
 
 --- 
 
