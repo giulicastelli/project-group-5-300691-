@@ -96,9 +96,11 @@ CART (Classification and Regression Trees) is a model that splits the dataset in
 
 #### **4.1 Training of the models**
 
-a) The dataset was split into training, validation, and test sets using stratified sampling to preserve class distribution across all subsets. This approach ensures consistent proportions of the target variable, allowing for reliable model training, hyperparameter tuning, and evaluation. The same splitting method was applied to all models to ensure comparability.
-b) The models were trained on the training set using default hyperparameters and evaluated on the validation set, with metrics such as precision, recall, F1-score, and a confusion matrix calculated to assess performance.
-c) We used cross-validation with GridSearchCV to identify the best hyperparameters for the models by testing various combinations of parameters. This approach ensures the models are optimized for performance while addressing issues like class imbalance and overfitting. The best hyperparameters and their cross-validation accuracy were extracted to fine-tune the model. 
+a)  The dataset was split into training, validation, and test sets using stratified sampling to preserve class distribution across all subsets. This approach ensures consistent proportions of the target variable, allowing for reliable model training, hyperparameter tuning, and evaluation. The same splitting method was applied to all models to ensure comparability.
+
+b)  The models were trained on the training set using default hyperparameters and evaluated on the validation set, with metrics such as precision, recall, F1-score, and a confusion matrix calculated to assess performance.
+
+c)  We used cross-validation with GridSearchCV to identify the best hyperparameters for the models by testing various combinations of parameters. This approach ensures the models are optimized for performance while addressing issues like class imbalance and overfitting. The best hyperparameters and their cross-validation accuracy were extracted to fine-tune the model. 
 
 ---
 
