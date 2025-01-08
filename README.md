@@ -35,14 +35,32 @@ We used a dataset named guilds.csv, which contains 253,680 rows and 31 columns, 
 - Target Variable: Guild_Membership, which specifies guild affiliation, such as Master_Guild or No_Guild.
 - Data Types: While most columns are numerical, some categorical features are binary or text-based.
 
+#### **1.2 Check Data Integrity**
+**Handling Missing Values:**
+We identified missing data using visualizations (e.g., missing data matrix).
+![missingvalues](https://github.com/user-attachments/assets/df9c4be6-48de-46c4-8cc6-925b16b345ea)
 
 
-Key Preprocessing Steps:
+**Types of Missingness:**
 
-Handling Missing Values:
-We identified missing data using visualizations (e.g., missing data matrix) and addressed it through:
-Dropping rows where Guild_Membership was missing, as it is the target variable.
-Imputing missing numerical features with the mean and categorical features with the most frequent value.
+- **Missing Completely at Random (MCAR):**
+In this case, the missing values on a given variable are not associated 
+with  other  variables  in  the  dataset  or  with  the  variable  itself.  There  is  no 
+discernible pattern or reason for the missing values. MCAR suggests that the absence of 
+data is entirely random.
+
+- **Missing at Random (MAR):**
+MAR  occurs  when  the  missingness  is  not  entirely  random  but  can  be  explained  or 
+predicted by other variables in the dataset. This means that there are variables where complete 
+information is available, and the likelihood of missing data 
+can be attributed to these variables. 
+
+- **Missing Not at Random (MNAR):**
+In MNAR, the missingness depends on unobserved data or the value of the 
+missing  data  itself.  In  other  words,  there  is  a  hidden  pattern  or  mechanism  causing 
+certain values to be missing, and this pattern is not explained by the observed data alone.
+
+
 Encoding Categorical Features:
 To ensure compatibility with machine learning models, we applied:
 One-hot encoding for binary columns like Healer_consultation_Presence.
