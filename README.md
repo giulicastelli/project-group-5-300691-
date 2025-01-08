@@ -25,7 +25,7 @@ dataset, preparing it for machine learning models. In order to do so we employed
 3. Visualize Distributions
 4. Correlation Heatmap
 
-#### **Understand Column Meanings**
+#### **1.1 Understand Column Meanings**
 We used a dataset named guilds.csv, which contains 253,680 rows and 31 columns, describing various magical and physical attributes of scholars in the Kingdom of Marendor. The data spans a mix of numerical, categorical, and derived variables that offer insights into the factors influencing guild memberships.
 
 **Types of Data:**
@@ -35,29 +35,15 @@ We used a dataset named guilds.csv, which contains 253,680 rows and 31 columns, 
 - Target Variable: Guild_Membership, which specifies guild affiliation, such as Master_Guild or No_Guild.
 - Data Types: While most columns are numerical, some categorical features are binary or text-based.
 
-#### **Check Data Integrity**
+#### **1.2 Check Data Integrity**
 **Handling Missing Values:**
 We identified missing data using visualizations (e.g., missing data matrix).
 IMMAGINE
 
-Types of Missingness:
-The patterns and correlations observed suggest that most of the missingness in the dataset can be explained by relationships with other observed variables, classifying it primarily as `Missing at Random` (MAR). However, there are specific cases where some variables might exhibit missing values due to reasons inherent to the variables themselves, such as sensitivity or unavailability of the data, indicating a potential for `Missing Not at Random` (MNAR) in certain scenarios.
+**Types of Missingness:**
+The patterns and correlations observed suggest that most of the missingness in the dataset can be explained by relationships with other observed variables, classifying it primarily as `Missing at Random` (MAR). 
 
-
-#### **Correlation Heatmap**
-
-Encoding Categorical Features:
-To ensure compatibility with machine learning models, we applied:
-One-hot encoding for binary columns like Healer_consultation_Presence.
-Manual mapping for ordinal columns such as Guild_Membership.
-Outlier Treatment:
-Instead of removing outliers, we scaled numerical features using Robust Scaling to mitigate their impact while preserving the range of values crucial for guild predictions.
-Feature Selection and Transformation:
-Features were evaluated for relevance and transformed where necessary to enhance model performance and computational efficiency.
-Tools and Libraries:
-
-Visualization: Missingno and Seaborn were used to visualize missing data and feature distributions.
-Scaling: RobustScaler from Scikit-learn was applied to numerical columns.
+#### **1.3 Correlation Heatmap**
 
 --- 
 
@@ -66,10 +52,10 @@ Scaling: RobustScaler from Scikit-learn was applied to numerical columns.
 #### **2.1 Handling Missing Data**
 We used two different startegies to handles missing values (NaN):
 
-1. **Drop Missing Target Values**:
+a) **Drop Missing Target Values**:
      - Rows with missing values in the Guild_Membership column were removed, ensuring the dataset was valid for supervised learning tasks.
 
-2. **Imputation for Features**:
+b) **Imputation for Features**:
      - **Numerical Features**: Missing values were replaced with the median to handle skewness and reduce the impact of outliers.
      - **Categorical Features**: Missing values were replaced with the most frequent value, preserving categorical integrity.
 
@@ -86,65 +72,31 @@ Instead of removing outliers, we used **Robust Scaling** to reduce their influen
 
 ---
 
-
 ### **3 Defining the problem type: Regression, Classification or Clustering**
 
+Based on the dataset, this is a multi-class classification problem because the target variable `Guild_Membership` consists of discrete categories representing the guild each scholar belongs to ("Master Guild", "Apprentice Guild" and "No Guild"). The objective is to predict which guild each scholar will be assigned to based on their attributes.  
+
+---
 
 ### **4 Algorithms:**
 
 Three algorithms were chosen based on their characteristics and suitability for the dataset:
 
-**Logistic Regression:**
+**Logistic Regression**
 Logistic Regression is simple and interpretable, making it suitable for understanding relationships between features and the target. It is also computationally efficient, even with large datasets. However, it assumes linearity between features and the log-odds of the target, which may not hold true for complex datasets like this one. Logistic Regression struggles with imbalanced data, often predicting the majority class, and has limited ability to capture non-linear patterns unless features are transformed or interactions are explicitly modeled.
 
-**Random Forest:**
-Random Forest is an ensemble method that builds multiple decision trees during training and combines their predictions (e.g., majority vote for classification). Each tree is trained on a bootstrapped sample, and feature selection is randomized at each split to reduce overfitting.
+**Random Forest**
+Random Forest is an ensemble method that builds multiple decision trees on bootstrapped samples and combines their predictions to reduce overfitting. It effectively handles non-linearity, provides feature importance metrics, and is robust to imbalanced datasets. However, it can be computationally intensive, memory-heavy for large datasets, and requires careful hyperparameter tuning for optimal performance.
 
-Pros:
+**CART Decision Trees**
+CART (Classification and Regression Trees) is a model that splits the dataset into subsets based on feature values, recursively partitioning until a stopping criterion is met. It is easy to visualize, interpret, and explain, captures non-linear relationships and requires minimal preprocessing for both numerical and categorical data. However, it is highly prone to overfitting without regularization and it is sensitive to small changes in the dataset.
 
-Handles non-linearity and interactions among features without explicit feature engineering.
-
-Provides feature importance metrics, aiding in interpretability.
-
-Robust to overfitting due to ensemble averaging and well-suited for imbalanced datasets by weighting classes or using techniques like SMOTE.
-
-Cons:
-
-Computationally intensive, especially with a high number of trees (n_estimators) or deep trees (max_depth).
-
-Memory usage can be significant for large datasets.
-
-Requires careful tuning of hyperparameters (e.g., n_estimators, max_features, max_depth) to achieve optimal performance.
-
-CART Decision Trees:
-CART (Classification and Regression Trees) is a non-parametric model that splits the dataset into subsets based on feature values, recursively partitioning until leaves contain instances of a single class or reach a stopping criterion.
-
-Pros:
-
-Easy to visualize, interpret, and explain to non-technical stakeholders.
-
-Captures non-linear relationships and interactions among features naturally.
-
-Requires minimal preprocessing, as it handles both numerical and categorical features natively.
-
-Cons:
-
-Highly prone to overfitting, as it tries to perfectly classify training data unless regularized (e.g., by limiting max_depth or min_samples_split).
-
-Sensitive to small changes in the dataset, which can significantly alter the structure of the tree.
-
-Limited predictive power as a standalone model; often outperformed by ensemble methods like Random Forest.
+---
 
 
 
 
 
-Training Overview:
-The dataset was preprocessed by handling missing values, encoding categorical features, and standardizing numerical features. We performed feature selection to identify the most relevant attributes.
-
-Environment
-
-Programming Language: Python 3.9
 
 Libraries: scikit-learn, pandas, numpy, matplotlib, seaborn
 
