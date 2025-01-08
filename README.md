@@ -21,7 +21,7 @@ By applying advanced optimization strategies such as hyperparameter tuning and c
 
 ### **1. EDA**
 
-### **Python libraries for analysis and visualization:**
+#### **Python libraries for analysis and visualization:**
 - Pandas
 - NumPy
 - Matplotlib
