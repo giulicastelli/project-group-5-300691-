@@ -56,7 +56,21 @@ We identified missing data using visualizations: **missing data matrix**
 **Types of Missingness:**
 The patterns and correlations observed suggest that most of the missingness in the dataset can be explained by relationships with other observed variables, classifying it primarily as **`Missing at Random`** (**MAR**). 
 
-#### **1.3 Correlation Heatmap**
+#### **1.3 Visualize Distributions**
+
+The data type of the columns determines how they are analyzed: numerical columns, such as continuous or discrete numbers, are visualized using boxplot analysis, while categorical columns, including strings or categories, are represented through countplot analysis. 
+
+An example of boxplot:
+
+![Graph of Results](faedust.png)
+
+An example of countplot:
+
+![Graph of Results](royalfamily.png)
+
+An example of boxplot:
+
+#### **1.4 Correlation Heatmap**
 
 The correlation heatmap illustrates the relationships between numerical features in the dataset. Most features exhibit very low correlation values with one another and with the target variable, indicating weak linear relationships across the dataset. 
 
