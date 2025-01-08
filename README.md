@@ -160,9 +160,13 @@ The Random Forest model demonstrated consistent performance across the training 
 The CART model faced generalization challenges, with accuracy dropping slightly from 68% on the training set to 66% on the test set. For Class 0, recall improved modestly from 7% to 11%, but overall precision and F1-scores remained poor. Class 1 showed slight improvements in recall (from 42% to 44%) but stable precision, while Class 2 experienced a minor decrease in recall (from 73% to 71%) but maintained high precision (90%). The Test ROC AUC of 0.59 highlighted limited class separability, especially for minority classes, underscoring the need for further refinement.
 
 #### **ROC-AUC curves**
-
+**Logistic Regression:**
 ![Graph of Results](logisticroc.png)
+
+**Random Forest:**
 ![Graph of Results](randomroc.png)
+
+**CART Decision Trees:**
 ![Graph of Results](cartroc.png)
 
 ---
