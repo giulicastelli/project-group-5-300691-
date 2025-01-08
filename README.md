@@ -1,25 +1,159 @@
-# Title and Team Members
+# Predicting Guild Memberships 
 
-Project Title: Predicting Guild Memberships in the Kingdom of Marendor
-Team Members:
+## Team Members:
 
 [Giulia Castelli] (Student ID: [300691])
-
 [Francesca Peppoloni]
-
 [Anna Granzotto]
 
 
-[Section 1] Introduction
+## [Section 1] Introduction
 
-The purpose of this project is to predict guild memberships of scholars in the mythical kingdom of Marendor. Using the "Guilds" dataset, which contains a variety of magical and physical attributes of scholars, we aim to develop a machine learning model capable of accurate classification. This project will assist in understanding the underlying characteristics of guild membership and provide a practical application of machine learning techniques.
+This project focuses on predicting guild memberships within the Kingdom of Marendor, a fictional world where scholars possess unique combinations of magical and physical attributes. The dataset comprises 31 features, combining both categorical and numerical features. Guild membership represents the target variable for classification.
 
-[Section 2] Methods
+The primary objective is to build machine learning models to accurately classify scholars into their respective guilds based on their attributes. This involves extensive data preprocessing, including handling missing values, encoding categorical features, and robustly scaling numerical features to address outliers. We further explore the efficacy of three machine learning models, which are Logistic Regression, Random Forest and CART Decision Trees, to evaluate and optimize classification performance.
 
-Proposed Ideas
+By applying advanced optimization strategies such as hyperparameter tuning and cross-validation, the project aims to identify the most effective model for this classification task. Insights gained from this analysis are expected to enhance our understanding of the factors influencing guild memberships and contribute to the development of interpretable and robust classification systems.
 
-Features:
-The dataset contains features such as magical attributes (e.g., mana capacity, spell affinity), physical attributes (e.g., strength, agility), and social connections.
+## [Section 2] Methods
+
+**Features:**
+The dataset includes a mix of numerical and categorical features representing the magical and physical traits of scholars. 
+
+**Numerical Features:**
+
+- **Fae_Dust_Reserve**: 
+  - **Explanation**: Represents the subject’s reserve of mystical dust indicating magical potential.
+  - **Values**: Numeric 
+
+- **Physical_Stamina**: 
+  - **Explanation**: Indicates the subject's overall physical endurance and health.
+  - **Values**: Numeric 
+
+- **Mystical_Index**: 
+  - **Explanation**: Numeric representation of the subject's mystical power and well-being.
+  - **Values**: Numeric
+
+- **Mystic_Energy_Level**: 
+  - **Explanation**: The level of mystical energy possessed by the subject.
+  - **Values**: Numeric 
+
+- **Age_of_Wisdom**: 
+  - **Explanation**: The subject's age, indicating life experience.
+  - **Values**: Numeric
+
+- **Mental_Wizardry**: 
+  - **Explanation**: Represents the subject's mental health and wizardry capacity.
+  - **Values**: Numeric 
+
+- **Potion_Power_Level**: 
+  - **Explanation**: Represents the power or effectiveness of the potions used by the subject.
+  - **Values**: Numeric
+
+- **Gold_Pouches_Per_Year**: 
+  - **Explanation**: The subject’s annual income represented as gold pouches.
+  - **Values**: Numeric
+
+- **Wizardry_Skill**: 
+  - **Explanation**: The subject’s proficiency in magical skills.
+  - **Values**: Numeric
+
+- **Spell_Mastering_Days**: 
+  - **Explanation**: Number of days the subject has dedicated to mastering spells.
+  - **Values**: Numeric
+
+- **Level_of_Academic_Wisdom**: 
+  - **Explanation**: The highest level of knowledge or wisdom achieved by the subject.
+  - **Values**: Numeric
+
+- **General_Health_Condition**: 
+  - **Explanation**: An overall assessment of the subject's health status.
+  - **Values**: Numeric
+
+- **Dragon_Sight_Sharpness**: 
+  - **Explanation**: Measures the subject’s visual acuity or ability to see mystical beings like dragons.
+  - **Values**: Numeric
+    
+- **Enchanted_Coin_Count**: 
+  - **Explanation**: The number of enchanted coins the subject possesses.
+  - **Values**: Numeric
+
+- **Celestial_Alignment**: 
+  - **Explanation**: Represents the alignment of the subject with celestial forces.
+  - **Values**: Numeric
+
+- **Knightly_Valor**: 
+  - **Explanation**: The bravery and valor displayed by the subject.
+  - **Values**: Numeric
+
+- **Rune_Power**: 
+  - **Explanation**: Represents the power derived from magical runes by the subject.
+  - **Values**: Numeric
+ 
+  
+**Categorical Features:**
+
+- **Healer_consultation_Presence**: 
+  - **Explanation**: Indicates whether the subject has consulted a healer recently.
+  - **Values**: Categorical, "Present" or "Absent".
+
+- **Elixir_veggies_consumption_Presence**: 
+  - **Explanation**: Indicates whether the subject has consumed enchanted vegetables.
+  - **Values**: Categorical, "Present" or "Absent".
+
+- **Bolt_of_doom_Presence**: 
+  - **Explanation**: Indicates whether the subject experienced a thunderstrike.
+  - **Values**: Categorical, "Present" or "Absent".
+
+- **High_willingness_Presence**: 
+  - **Explanation**: Indicates whether the subject has a high willingness to engage in advanced magical practices.
+  - **Values**: Categorical, "Present" or "Absent".
+
+- **Defense_spell_difficulty_Presence**: 
+  - **Explanation**: Indicates if the subject has difficulty casting defense spells.
+  - **Values**: Categorical, "Present" or "Absent".
+
+- **Doc_availability_challenge_Presence**: 
+  - **Explanation**: Shows if there were any barriers preventing access to healers.
+  - **Values**: Categorical, "Present" or "Absent".
+
+- **Dexterity_check_Presence**: 
+  - **Explanation**: Indicates the subject's high dexterity.
+  - **Values**: Categorical, "Present" or "Absent".
+
+- **Fruits_of_eden_consumption_Presence**: 
+  - **Explanation**: Indicates whether the subject consumes fruits from Eden.
+  - **Values**: Categorical, "Present" or "Absent".
+
+- **Knight_physical_training_Presence**: 
+  - **Explanation**: Indicates if the subject underwent knight-like physical training.
+  - **Values**: Categorical, "Present" or "Absent".
+
+- **Royal_family_pressure_Presence**: 
+  - **Explanation**: Indicates if the subject faces pressure from the royal family.
+  - **Values**: Categorical, "Present" or "Absent".
+
+- **Guild_Membership**: 
+  - **Explanation**: The guild or magical faction the subject will belong to.
+  - **Values**: Categorical, "Master_Guild", "No_Guild", "Apprentice_Guild" -> **target variable**
+
+- **Heavy_elixir_consumption_Presence**: 
+  - **Explanation**: Indicates if the subject consumes heavy magical elixirs.
+  - **Values**: Categorical, "Present" or "Absent".
+
+- **Stigmata_of_the_cursed_Presence**: 
+  - **Explanation**: Indicates if the subject experienced a crisis or damage from magical or dark powers.
+  - **Values**: Categorical, "Present" or "Absent".
+
+- **Dragon_status_Presence**: 
+  - **Explanation**: Denotes whether the subject has the sign of the dragon.
+  - **Values**: Categorical, "Present" or "Absent".
+
+
+
+
+
+
 
 Algorithms:
 We tested three models:
