@@ -5,7 +5,7 @@
 [Giulia Castelli] (Student ID: [300691])
 [Francesca Peppoloni]
 [Anna Granzotto]
- hahahahahaah
+
 
 ## [Section 1] Introduction
 
@@ -25,7 +25,7 @@ dataset, preparing it for machine learning models. In order to do so we employed
 3. Visualize Distributions
 4. Correlation Heatmap
 
-#### **1.1 Understand Column Meanings**
+#### **Understand Column Meanings**
 We used a dataset named guilds.csv, which contains 253,680 rows and 31 columns, describing various magical and physical attributes of scholars in the Kingdom of Marendor. The data spans a mix of numerical, categorical, and derived variables that offer insights into the factors influencing guild memberships.
 
 **Types of Data:**
@@ -35,31 +35,16 @@ We used a dataset named guilds.csv, which contains 253,680 rows and 31 columns, 
 - Target Variable: Guild_Membership, which specifies guild affiliation, such as Master_Guild or No_Guild.
 - Data Types: While most columns are numerical, some categorical features are binary or text-based.
 
-#### **1.2 Check Data Integrity**
+#### **Check Data Integrity**
 **Handling Missing Values:**
 We identified missing data using visualizations (e.g., missing data matrix).
-missingvalues.png
+IMMAGINE
+
+Types of Missingness:
+The patterns and correlations observed suggest that most of the missingness in the dataset can be explained by relationships with other observed variables, classifying it primarily as `Missing at Random` (MAR). However, there are specific cases where some variables might exhibit missing values due to reasons inherent to the variables themselves, such as sensitivity or unavailability of the data, indicating a potential for `Missing Not at Random` (MNAR) in certain scenarios.
 
 
-**Types of Missingness:**
-
-- **Missing Completely at Random (MCAR):**
-In this case, the missing values on a given variable are not associated 
-with  other  variables  in  the  dataset  or  with  the  variable  itself.  There  is  no 
-discernible pattern or reason for the missing values. MCAR suggests that the absence of 
-data is entirely random.
-
-- **Missing at Random (MAR):**
-MAR  occurs  when  the  missingness  is  not  entirely  random  but  can  be  explained  or 
-predicted by other variables in the dataset. This means that there are variables where complete 
-information is available, and the likelihood of missing data 
-can be attributed to these variables. 
-
-- **Missing Not at Random (MNAR):**
-In MNAR, the missingness depends on unobserved data or the value of the 
-missing  data  itself.  In  other  words,  there  is  a  hidden  pattern  or  mechanism  causing 
-certain values to be missing, and this pattern is not explained by the observed data alone.
-
+#### **Correlation Heatmap**
 
 Encoding Categorical Features:
 To ensure compatibility with machine learning models, we applied:
@@ -74,6 +59,15 @@ Tools and Libraries:
 Visualization: Missingno and Seaborn were used to visualize missing data and feature distributions.
 Scaling: RobustScaler from Scikit-learn was applied to numerical columns.
 
+### **2. Preprocessing the Dataset**
+
+#### **Drop missing values (NaN) in Guild_Membership**
+
+#### **Imput new values in other columns: Median**
+
+#### **Encoding categorical features: One-Hot Encode**
+
+#### **Fixing outliers: Robust Scaling**
 
 
 ### **2.2 Algorithms:**
