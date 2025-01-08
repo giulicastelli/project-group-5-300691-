@@ -58,6 +58,8 @@ The patterns and correlations observed suggest that most of the missingness in t
 
 #### **1.3 Correlation Heatmap**
 
+The correlation heatmap illustrates the relationships between numerical features in the dataset. Most features exhibit very low correlation values with one another and with the target variable, indicating weak linear relationships across the dataset. 
+
 ![Graph of Results](correlation.png)
 
 --- 
